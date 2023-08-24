@@ -28,23 +28,29 @@ export default function SignUpForm() {
   };
 
   return (
-    <form onSubmit={singupHandler}>
-      <label htmlFor="email"></label>
+    <form onSubmit={singupHandler} className="w-full flex flex-col gap-2 text-blue-600">
+      <label htmlFor="email" className="text-blue-700">
+        이메일
+      </label>
       <input
         data-test-id="email-input"
         id="email"
         ref={emailRef}
         onChange={emailChangeHandler}
         type="email"
+        className="h-7 p-2 text-blue-600 border border-blue-600 rounded focus:ring-2 focus:ring-blue-600 focus:border-transparent"
       />
       <span id="email-error-msg">{emailErrorMsg}</span>
-      <label htmlFor="password"></label>
+      <label htmlFor="password" className="text-blue-700">
+        비밀번호
+      </label>
       <input
         data-test-id="password-input"
         id="password"
         type="password"
         ref={passwordRef}
         onChange={passwordChangeHandler}
+        className="h-7 p-2 text-blue-600 border border-blue-600 rounded focus:ring-2 focus:ring-blue-600 focus:border-transparent"
       />
       <span id="password-error-msg">{passwordErrorMsg}</span>
 
@@ -53,7 +59,9 @@ export default function SignUpForm() {
         disabled={!isPass}
         text={'회원가입'}
         type="submit"
-        className="relative w-full rounded-md "
+        variant="mainstyle"
+        size="small"
+        className="mt-2"
       />
     </form>
   );

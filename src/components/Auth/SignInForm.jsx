@@ -28,23 +28,29 @@ export default function SignInForm() {
   };
 
   return (
-    <form onSubmit={singinHandler}>
-      <label htmlFor="email"></label>
+    <form onSubmit={singinHandler} className="w-full flex flex-col mt-2 gap-2 text-blue-600">
+      <label htmlFor="email" className="text-blue-800">
+        이메일
+      </label>
       <input
         data-testid="email-input"
         id="email"
         ref={emailRef}
         onChange={emailChangeHandler}
         type="email"
+        className="h-7 p-2 text-blue-600 border border-blue-600 rounded focus:ring-2 focus:ring-blue-600 focus:border-transparent"
       />
       <span id="email-error-msg">{emailErrorMsg}</span>
-      <label htmlFor="password"></label>
+      <label htmlFor="password" className="text-blue-800">
+        패스워드
+      </label>
       <input
         data-testid="password-input"
         id="password"
         type="password"
         ref={passwordRef}
         onChange={passwordChangeHandler}
+        className="h-7 p-2 text-blue-600 border border-blue-600 rounded focus:ring-2 focus:ring-blue-600 focus:border-transparent"
       />
       <span id="password-error-msg">{passwordErrorMsg}</span>
       <Button
@@ -52,7 +58,9 @@ export default function SignInForm() {
         disabled={!isPass}
         text={'로그인'}
         type="submit"
-        className="relative w-full rounded-md "
+        size="small"
+        variant="mainstyle"
+        className="mt-2"
       />
     </form>
   );

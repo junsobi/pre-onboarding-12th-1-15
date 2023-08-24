@@ -8,6 +8,7 @@ function Button({
   size = 'medium',
   className = '',
   disabled = false,
+  variant = 'default',
 }) {
   const sizeStyles = {
     small: 'px-2 py-1 text-sm',
@@ -15,10 +16,16 @@ function Button({
     large: 'px-4 py-3 text-lg',
   };
 
-  const defaultStyles =
-    'text-black bg-textBg hover:bg-buttonHover hover:text-white font-bold rounded focus:outline-none ';
+  const variantStyles = {
+    default: 'text-black bg-textBg hover:bg-buttonHover hover:text-white',
+    mainstyle: 'w-full border border-blue-700 text-blue-700 hover:bg-yellow-200',
+    returnButton:
+      'flex items-center justify-center border border-blue-600 p-2 h-6 bg-white text-blue-600 rounded hover:bg-yellow-300',
+  };
 
-  const buttonClassName = `${defaultStyles} ${sizeStyles[size]} ${className}`;
+  const defaultStyles = 'font-bold rounded focus:outline-none ';
+
+  const buttonClassName = `${defaultStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`;
 
   return (
     <button
