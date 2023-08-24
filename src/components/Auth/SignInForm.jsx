@@ -2,6 +2,7 @@ import React from 'react';
 import useAuthForm from '../../hook/useAuthForm';
 import { signIn } from '../../lib/api/auth';
 import { useNavigate } from 'react-router';
+import Button from '../Button';
 
 export default function SignInForm() {
   const navigate = useNavigate();
@@ -34,7 +35,8 @@ export default function SignInForm() {
         id="email"
         ref={emailRef}
         onChange={emailChangeHandler}
-      ></input>
+        type="email"
+      />
       <span id="email-error-msg">{emailErrorMsg}</span>
       <label htmlFor="password"></label>
       <input
@@ -43,11 +45,15 @@ export default function SignInForm() {
         type="password"
         ref={passwordRef}
         onChange={passwordChangeHandler}
-      ></input>
+      />
       <span id="password-error-msg">{passwordErrorMsg}</span>
-      <button data-testid="signin-button" disabled={!isPass}>
-        로그인
-      </button>
+      <Button
+        dataTestId="signin-button"
+        disabled={!isPass}
+        text={'로그인'}
+        type="submit"
+        className="relative w-full rounded-md "
+      />
     </form>
   );
 }

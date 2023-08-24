@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import { useTodo } from '../../lib/contexts/hook/useTodo';
+import Input from '../Input/Input';
+import Button from '../Button';
+import CheckboxInput from '../Input/CheckboxInput';
 
 const EditingTodoItem = ({ todo, toggleEditing }) => {
   const [editingValue, setEditingValue] = useState(todo.todo);
@@ -26,21 +29,18 @@ const EditingTodoItem = ({ todo, toggleEditing }) => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <input type="checkbox" checked={todo.isCompleted} readOnly />
-        <input
+        <CheckboxInput checked={todo.isCompleted} readOnly />
+        <Input
           type="text"
           value={editingValue}
           onChange={handleEditChange}
           onKeyDown={handleEscapeKeyDown}
+          size="medium"
         />
       </div>
       <div>
-        <button type="submit" data-testid="submit-button">
-          제출
-        </button>
-        <button type="button" data-testid="cancel-button" onClick={toggleEditing}>
-          취소
-        </button>
+        <Button type="submit" dataTestId="submit-button" text={'제출'} />
+        <Button type="button" dataTestId="cancel-button" onClick={toggleEditing} text={'취소'} />
       </div>
     </form>
   );

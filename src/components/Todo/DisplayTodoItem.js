@@ -1,5 +1,7 @@
 import React from 'react';
 import { useTodo } from '../../lib/contexts/hook/useTodo';
+import Button from '../Button';
+import CheckboxInput from '../Input/CheckboxInput';
 
 const DisplayTodoItem = ({ todo, toggleEditing }) => {
   const { editTodo, removeTodo } = useTodo();
@@ -7,8 +9,7 @@ const DisplayTodoItem = ({ todo, toggleEditing }) => {
   return (
     <div>
       <div>
-        <input
-          type="checkbox"
+        <CheckboxInput
           checked={todo.isCompleted}
           onChange={() => editTodo(todo.id, todo.todo, !todo.isCompleted)}
         />
@@ -24,12 +25,8 @@ const DisplayTodoItem = ({ todo, toggleEditing }) => {
         </span>
       </div>
       <div>
-        <button onClick={toggleEditing} data-testid="modify-button">
-          수정
-        </button>
-        <button onClick={() => removeTodo(todo.id)} data-testid="delete-button">
-          삭제
-        </button>
+        <Button onClick={toggleEditing} dataTestId="modify-button" text={'수정'} />
+        <Button onClick={() => removeTodo(todo.id)} dataTestId="delete-button" text={'삭제'} />
       </div>
     </div>
   );
