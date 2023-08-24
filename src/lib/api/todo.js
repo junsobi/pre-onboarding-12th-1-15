@@ -11,8 +11,7 @@ export const getTodos = async () => {
 
 export const createTodo = async todo => {
   try {
-    const response = await apiClient.post('/todos', { todo });
-    return response.data;
+    await apiClient.post('/todos', { todo });
   } catch (error) {
     throw new Error(error.message);
   }
@@ -20,8 +19,7 @@ export const createTodo = async todo => {
 
 export const updateTodo = async (id, todo, isCompleted) => {
   try {
-    const response = await apiClient.put(`/todos/${id}`, { todo, isCompleted });
-    return response.data;
+    await apiClient.put(`/todos/${id}`, { todo, isCompleted });
   } catch (error) {
     throw new Error(error.message);
   }
@@ -29,8 +27,7 @@ export const updateTodo = async (id, todo, isCompleted) => {
 
 export const deleteTodo = async id => {
   try {
-    const response = await apiClient.delete(`/todos/${id}`);
-    if (response.status === 204) return;
+    await apiClient.delete(`/todos/${id}`);
   } catch (error) {
     throw new Error(error.message);
   }
