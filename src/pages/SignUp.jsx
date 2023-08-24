@@ -1,7 +1,12 @@
 import React from 'react';
+import SignUpForm from '../components/Auth/SignUpForm';
 
 function SignUp() {
-  return <>로그아웃페이지</>;
+  return (
+    <main>
+      <SignUpForm />
+    </main>
+  );
 }
 
 export default SignUp;
