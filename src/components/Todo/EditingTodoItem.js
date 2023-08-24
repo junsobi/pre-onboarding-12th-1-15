@@ -27,14 +27,14 @@ const EditingTodoItem = ({ todo, toggleEditing }) => {
 
   return (
     <form onSubmit={handleSubmit} className="w-full flex gap-4 justify-between items-center">
-      <div className="w-4/5 flex justify-start items-center gap-4">
+      <div className="w-4/5 flex justify-start items-center gap-2">
         <CheckboxInput checked={todo.isCompleted} readOnly />
         <input
           type="text"
           value={editingValue}
           onChange={handleEditChange}
           onKeyDown={handleEscapeKeyDown}
-          className="w- h-8 px-5 text-blue-600 rounded m-1 border border-blue-600 focus:ring-1 focus:ring-blue-600 focus:ring-inset focus:border-transparent"
+          className="w-10/12 h-8 px-2 text-blue-600 rounded border border-blue-600 focus:ring-1 focus:ring-blue-600 focus:ring-inset focus:border-transparent"
         />
       </div>
       <div className="w-1/5 flex gap-2">
