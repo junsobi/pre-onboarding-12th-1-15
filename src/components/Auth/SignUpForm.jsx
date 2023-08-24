@@ -2,8 +2,15 @@ import React from 'react';
 import useAuthForm from '../../hook/useAuthForm';
 
 export default function SignUpForm() {
-  const { emailRef, emailChangeHandler, passwordRef, passwordChangeHandler, isPass } =
-    useAuthForm();
+  const {
+    emailRef,
+    emailChangeHandler,
+    emailErrorMsg,
+    passwordRef,
+    passwordChangeHandler,
+    passwordErrorMsg,
+    isPass,
+  } = useAuthForm();
 
   return (
     <form>
@@ -14,6 +21,7 @@ export default function SignUpForm() {
         ref={emailRef}
         onChange={emailChangeHandler}
       ></input>
+      <span id="email-error-msg">{emailErrorMsg}</span>
       <label htmlFor="password"></label>
       <input
         data-testid="password-input"
@@ -22,6 +30,7 @@ export default function SignUpForm() {
         ref={passwordRef}
         onChange={passwordChangeHandler}
       ></input>
+      <span id="password-error-msg">{passwordErrorMsg}</span>
       <button data-testid="signup-button" disabled={!isPass}>
         회원가입
       </button>
