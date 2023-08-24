@@ -1,7 +1,12 @@
 import React from 'react';
+import SignInForm from '../components/Auth/SignInForm';
 
 function SignIn() {
-  return <>로그인페이지</>;
+  return (
+    <main>
+      <SignInForm />
+    </main>
+  );
 }
 
 export default SignIn;
