@@ -14,12 +14,12 @@ module.exports = {
           '100%': { transform: 'rotate(360deg)' },
         },
       },
-      colors: {},
+      colors: {
+        buttonHover: '#01017E',
+        textBg: '#C0C0C0',
+      },
       margin: {},
     },
-    // width: {
-    //   headerWCustom: '4rem',
-    // },
   },
   plugins: [],
 };

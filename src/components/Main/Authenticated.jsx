@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTodo } from '../../lib/contexts/hook/useTodo';
+import Button from '../Button';
 
 const Authenticated = () => {
   const navigate = useNavigate();
@@ -14,12 +15,12 @@ const Authenticated = () => {
           해야 할 일이 <span className="text-red-600">{incompleteTodosCount}</span>개 있습니다.
         </p>
       </div>
-      <button
+      <Button
         onClick={() => navigate('/todo')}
-        className="w-full border border-blue-700 text-blue-700 py-2 px-4 rounded hover:bg-yellow-200"
-      >
-        할 일 목록 보기
-      </button>
+        variant="mainstyle"
+        size="medium"
+        text="할일 목록 보기"
+      />
     </div>
   );
 };

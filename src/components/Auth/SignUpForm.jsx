@@ -2,6 +2,7 @@ import React from 'react';
 import useAuthForm from '../../hook/useAuthForm';
 import { signUp } from '../../lib/api/auth';
 import { useNavigate } from 'react-router';
+import Button from '../Button';
 
 export default function SignUpForm() {
   const navigate = useNavigate();
@@ -27,27 +28,41 @@ export default function SignUpForm() {
   };
 
   return (
-    <form onSubmit={singupHandler}>
-      <label htmlFor="email"></label>
+    <form onSubmit={singupHandler} className="w-full flex flex-col gap-2 text-blue-600">
+      <label htmlFor="email" className="text-blue-700">
+        이메일
+      </label>
       <input
-        data-testid="email-input"
+        data-test-id="email-input"
         id="email"
         ref={emailRef}
         onChange={emailChangeHandler}
-      ></input>
+        type="email"
+        className="h-7 p-2 text-blue-600 border border-blue-600 rounded focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+      />
       <span id="email-error-msg">{emailErrorMsg}</span>
-      <label htmlFor="password"></label>
+      <label htmlFor="password" className="text-blue-700">
+        비밀번호
+      </label>
       <input
-        data-testid="password-input"
+        data-test-id="password-input"
         id="password"
         type="password"
         ref={passwordRef}
         onChange={passwordChangeHandler}
-      ></input>
+        className="h-7 p-2 text-blue-600 border border-blue-600 rounded focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+      />
       <span id="password-error-msg">{passwordErrorMsg}</span>
-      <button data-testid="signup-button" disabled={!isPass}>
-        회원가입
-      </button>
+
+      <Button
+        dataTestId="signup-button"
+        disabled={!isPass}
+        text={'회원가입'}
+        type="submit"
+        variant="mainstyle"
+        size="small"
+        className="mt-2"
+      />
     </form>
   );
 }
