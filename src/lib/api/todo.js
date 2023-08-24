@@ -30,9 +30,7 @@ export const updateTodo = async (id, todo, isCompleted) => {
 export const deleteTodo = async id => {
   try {
     const response = await apiClient.delete(`/todos/${id}`);
-    if (response.status === 204) {
-      return;
-    }
+    if (response.status === 204) return;
   } catch (error) {
     throw new Error(error.message);
   }
