@@ -9,13 +9,14 @@ const TodoItems = () => {
   return (
     <ul className="flex flex-col gap-4 w-full h-full mt-2 p-4 border border-blue-900 rounded">
       {todos.map(todo => (
-        <TodoItem
-          key={todo.id}
-          todo={todo}
-          isEditing={todo.id === editingTodoId} // 해당 todo가 수정 중인지 판단
-          startEditing={() => setEditingTodoId(todo.id)} // 수정을 시작
-          stopEditing={() => setEditingTodoId(null)} // 수정을 중지
-        />
+        <React.Fragment key={todo.id}>
+          <TodoItem
+            todo={todo}
+            isEditing={todo.id === editingTodoId} // 해당 todo가 수정 중인지 판단
+            startEditing={() => setEditingTodoId(todo.id)} // 수정을 시작
+            stopEditing={() => setEditingTodoId(null)} // 수정을 중지
+          />
+        </React.Fragment>
       ))}
     </ul>
   );
