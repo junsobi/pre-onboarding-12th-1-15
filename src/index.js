@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import NotFound from './pages/NotFound';
 import Todo from './pages/Todo';
@@ -33,5 +32,3 @@ root.render(
     <RouterProvider router={router}></RouterProvider>
   </React.StrictMode>,
 );
-
-reportWebVitals();
