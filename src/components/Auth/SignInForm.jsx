@@ -1,7 +1,10 @@
 import React from 'react';
 import useAuthForm from '../../hook/useAuthForm';
+import { signIn } from '../../lib/api/auth';
+import { useNavigate } from 'react-router';
 
 export default function SignInForm() {
+  const navigate = useNavigate();
   const {
     emailRef,
     emailChangeHandler,
@@ -12,8 +15,19 @@ export default function SignInForm() {
     isPass,
   } = useAuthForm();
 
+  const singinHandler = async e => {
+    e.preventDefault();
+    try {
+      await signIn(emailRef.current.value, passwordRef.current.value);
+      navigate('/todo');
+    } catch (error) {
+      const errorMsg = error.response?.data?.message;
+      alert(errorMsg || '로그인에 실패했습니다.');
+    }
+  };
+
   return (
-    <form>
+    <form onSubmit={singinHandler}>
       <label htmlFor="email"></label>
       <input
         data-testid="email-input"

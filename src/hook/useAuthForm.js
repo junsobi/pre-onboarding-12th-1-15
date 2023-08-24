@@ -20,7 +20,7 @@ export default function useAuthForm() {
   const passwordChangeHandler = () => {
     if (passwordRef.current) {
       setPasswordValid(validationPassword(passwordRef.current.value));
-      if (passwordRef.current.value.length > 0 && passwordRef.current.value.length <= 8)
+      if (passwordRef.current.value.length > 0 && passwordRef.current.value.length < 8)
         setPasswordErrorMsg('8자리 이상 입력해주세요.');
       else setPasswordErrorMsg('');
     }
