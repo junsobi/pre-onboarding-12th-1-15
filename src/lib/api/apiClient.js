@@ -7,12 +7,12 @@ const apiClient = axios.create({
   },
 });
 
-export const setAuthToken = token => {
-  if (token) {
-    apiClient.defaults.headers.Authorization = `Bearer ${token}`;
-  } else {
-    delete apiClient.defaults.headers.Authorization;
+apiClient.interceptors.request.use(config => {
+  const authToken = localStorage.getItem('access_token');
+  if (authToken) {
+    config.headers.Authorization = `Bearer ${authToken}`;
   }
-};
+  return config;
+});
 
 export default apiClient;
