@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useTodo } from '../../lib/contexts/hook/useTodo';
+import Input from '../Input/Input';
+import Button from '../Button';
 
 const TodoForm = () => {
   const [newTodo, setNewTodo] = useState('');
@@ -16,18 +18,17 @@ const TodoForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <input
+        <Input
           type="text"
           value={newTodo}
           onChange={e => setNewTodo(e.target.value)}
           placeholder="해야할일..."
-          data-testid="new-todo-input"
+          dataTestId="new-todo-input"
+          size="medium"
         />
       </div>
       <div>
-        <button type="submit" data-testid="new-todo-add-button">
-          추가
-        </button>
+        <Button type="submit" dataTestId="new-todo-add-button" text={'추가'} />
       </div>
     </form>
   );

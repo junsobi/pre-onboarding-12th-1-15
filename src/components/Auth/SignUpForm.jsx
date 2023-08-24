@@ -2,6 +2,7 @@ import React from 'react';
 import useAuthForm from '../../hook/useAuthForm';
 import { signUp } from '../../lib/api/auth';
 import { useNavigate } from 'react-router';
+import Button from '../Button';
 
 export default function SignUpForm() {
   const navigate = useNavigate();
@@ -30,24 +31,30 @@ export default function SignUpForm() {
     <form onSubmit={singupHandler}>
       <label htmlFor="email"></label>
       <input
-        data-testid="email-input"
+        data-test-id="email-input"
         id="email"
         ref={emailRef}
         onChange={emailChangeHandler}
-      ></input>
+        type="email"
+      />
       <span id="email-error-msg">{emailErrorMsg}</span>
       <label htmlFor="password"></label>
       <input
-        data-testid="password-input"
+        data-test-id="password-input"
         id="password"
         type="password"
         ref={passwordRef}
         onChange={passwordChangeHandler}
-      ></input>
+      />
       <span id="password-error-msg">{passwordErrorMsg}</span>
-      <button data-testid="signup-button" disabled={!isPass}>
-        회원가입
-      </button>
+
+      <Button
+        dataTestId="signup-button"
+        disabled={!isPass}
+        text={'회원가입'}
+        type="submit"
+        className="relative w-full rounded-md "
+      />
     </form>
   );
 }
