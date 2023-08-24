@@ -5,7 +5,7 @@ export const signUp = async (email, password) => {
     const response = await apiClient.post('/auth/signup', { email, password });
     return response.data;
   } catch (error) {
-    throw new Error(error.message);
+    return Promise.reject(error);
   }
 };
 
@@ -15,6 +15,6 @@ export const signIn = async (email, password) => {
     localStorage.setItem('access_token', response.data.access_token);
     return response.data;
   } catch (error) {
-    throw new Error(error.message);
+    return Promise.reject(error);
   }
 };
