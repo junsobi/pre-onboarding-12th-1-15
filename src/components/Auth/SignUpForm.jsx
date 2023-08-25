@@ -41,7 +41,6 @@ export default function SignUpForm() {
         id="email"
         inputRef={emailRef}
         onChangeHandler={emailChangeHandler}
-        type="email"
         errorMsg={emailErrorMsg}
       />
       <InputField
