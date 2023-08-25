@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import useAuthForm from './hook/useAuthForm';
 import { signUp } from '../../lib/api/auth';
 import { useNavigate } from 'react-router';
@@ -27,6 +27,12 @@ export default function SignUpForm() {
       alert(errorMsg || '회원가입에 실패했습니다.');
     }
   };
+
+  useEffect(() => {
+    if (emailRef.current) {
+      emailRef.current.focus();
+    }
+  }, []); // 랜더링시 이메일에 포커스
 
   return (
     <form onSubmit={singupHandler} className="w-full flex flex-col gap-2 mt-4 text-blue-600">
