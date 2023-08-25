@@ -41,7 +41,7 @@ const TodoForm = () => {
           text={'추가'}
           variant="returnButton"
           size="small"
-          className="h-8 py-4 mr-2"
+          className="h-8 py-4 mr-2 min-w-max"
         />
       </div>
     </form>
