@@ -34,10 +34,7 @@ const EditingTodoItem = ({ todo, toggleEditing }) => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="w-full flex gap-4 justify-between items-center py-2 hover:bg-gray-100"
-    >
+    <form onSubmit={handleSubmit} className="w-full flex gap-4 justify-between items-center py-2">
       <div className="w-4/5 flex justify-start items-center gap-2">
         <CheckboxInput checked={todo.isCompleted} readOnly />
         <input

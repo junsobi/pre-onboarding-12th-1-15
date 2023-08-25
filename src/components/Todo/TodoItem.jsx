@@ -12,7 +12,7 @@ const TodoItem = ({ todo, isEditing, startEditing, stopEditing }) => {
   };
 
   return (
-    <li>
+    <li className="px-2 rounded-md hover:bg-gray-100">
       {isEditing ? (
         <EditingTodoItem todo={todo} toggleEditing={toggleEditing} />
       ) : (

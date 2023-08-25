@@ -31,7 +31,7 @@ const TodoForm = () => {
         placeholder="새로운 Todo"
         onChange={e => setNewTodo(e.target.value)}
         data-testid="new-todo-input"
-        className="w-10/12 h-8 px-5 text-blue-600 rounded m-1 border border-blue-600 focus:ring-1 focus:ring-blue-600 focus:ring-inset focus:border-transparent"
+        className="w-10/12 h-8 px-5 text-uiBorderColor rounded m-1 border border-uiBorderColor focus:ring-1 focus:ring-blue-600 focus:ring-inset focus:border-transparent focus:border-blue-900 focus:outline-none"
       />
 
       <div className="w-auto">
