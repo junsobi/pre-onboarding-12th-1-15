@@ -32,6 +32,8 @@ Vercel을 통해 배포.
 📦src
  ┣ 📂components
  ┃ ┣ 📂Auth
+ ┃ ┃ ┣ 📂hook
+ ┃ ┃ ┃ ┗ 📜useAuthForm.js
  ┃ ┃ ┣ 📜SignInForm.jsx
  ┃ ┃ ┗ 📜SignUpForm.jsx
  ┃ ┣ 📂Input
@@ -44,15 +46,16 @@ Vercel을 통해 배포.
  ┃ ┃ ┣ 📜Authenticated.jsx
  ┃ ┃ ┗ 📜NotAuthenticated.jsx
  ┃ ┣ 📂Todo
- ┃ ┃ ┣ 📜DisplayTodoItem.js
- ┃ ┃ ┣ 📜EditingTodoItem.js
- ┃ ┃ ┣ 📜TodoForm.js
- ┃ ┃ ┣ 📜TodoItem.js
- ┃ ┃ ┗ 📜TodoItems.js
- ┃ ┣ 📜Button.jsx
- ┃ ┗ 📜Header.jsx
- ┣ 📂hook
- ┃ ┗ 📜useAuthForm.js
+ ┃ ┃ ┣ 📜DisplayTodoItem.jsx
+ ┃ ┃ ┣ 📜EditingTodoItem.jsx
+ ┃ ┃ ┣ 📜TodoForm.jsx
+ ┃ ┃ ┣ 📜TodoItem.jsx
+ ┃ ┃ ┗ 📜TodoItems.jsx
+ ┃ ┣ 📂Buttons
+ ┃ ┃ ┣ 📜Button.jsx
+ ┃ ┃ ┣ 📜LoguOutButton.jsx
+ ┃ ┃ ┣ 📜ReturnButton.jsx
+ ┃ ┃ ┗ 📜ToHomeButton.jsx
  ┣ 📂lib
  ┃ ┣ 📂api
  ┃ ┃ ┣ 📜apiClient.js
@@ -160,18 +163,20 @@ Vercel을 통해 배포.
 
 ### 구현
 
-1. `useCallback` 사용 - 성능 최적화를 위해
-2. 데이터를 가져오는 함수는 axios 사용, api 폴더에서 관리
+1. 데이터를 가져오는 함수는 axios 사용, lib/api 폴더에서 관리
+2. ToDo CRUD 함수는 `cotextApi` 사용, lib/contexts 폴더에서 관리
 3. `context api`에서 `useEffect` 를 사용해 데이터 최초 get,
-   `todos` state 변수에 할당
-4. 리스트 데이터는 CRUD 할때마다 get해온 리스트로 리스트업 하는방식
+   `todos` state 변수에 할당 후 관리
+4. ToDo 데이터는 CRUD 할때마다 get해온 리스트로 리스트업 하는방식 - 데이터 안정성 확보
 5. `TodoItems` 컴포넌트에서 `map()` 을 사용하여 `TodoItem` 컴포넌트를 뿌리고 props 전달
 
 - 전달하는 props 값 : 키, 투두 내용, 수정 여부
 
 6. `TodoItem` 컴포넌트는 수정 여부에 따라 EditingTodoItem(수정모드), DisplayTodoItem(디스플레이 모드)를 랜더링
-7. `TodoItem` 컴포넌트는 `isCompleted` 속성을 checkbox `checked` 값에 할당
-8. 완료된 리스트의 경우 ~~취소선~~이 그어진 효과 부여
+7. 수정모드는 한번에 한개의 Todo만 활성화 될 수 있는 로직 구현
+8. 수정모드인 동안에는 체크박스 체크를 막아 놓는 로직 구현
+9. `TodoItem` 컴포넌트는 `isCompleted` 속성을 checkbox `checked` 값에 할당
+10. 완료된 리스트의 경우 ~~취소선~~이 그어진 효과 부여
 
 ---
 
@@ -185,13 +190,10 @@ Vercel을 통해 배포.
 
 ### 구현
 
-1. 렌더링 최적화를 위하여 추가폼은 별도 컴포넌트 `TodoForm` 로 분리
-2. `TodoContext` 에서 `todos`(투두 리스트) 를 props 로 받아옴
-3. POST 요청이 성공하면 `getTodo`함수를 이용해 `TodoList`를 받아온후
-   setTodoList를 사용해 state재할당 - 서버와의 데이터 일치성 확보를 위해
-4. `form` 태그를 활용해 제출 버튼 타입을 `submit` 설정(버튼과 엔터 모두에서 작동)
-5. 아무런 내용이 없을때 submit 은 작동 방지
-6. 제출이 완료되면 input value 초기화
+1. POST 요청이 성공하면 `TodoList`를 받아온후 state재할당 - 데이터 안정성 확보
+2. `form` 태그를 활용해 제출 버튼 타입을 `submit` 설정(버튼과 엔터 모두에서 작동)
+3. 아무런 내용이 없을때 submit 은 작동 방지
+4. 제출이 완료되면 input value 초기화
 
 ---
 
@@ -205,8 +207,6 @@ Vercel을 통해 배포.
 
 ### 구현
 
-1. TodoItem 컴포넌트에서 삭제 버튼 클릭 시 contextApi의 `removeTodo` 함수 호출,
-   api 함수에 아이템 id 전달
-2. DELETE 요청이 성공하면 `getTodoList` 를 사용해 state 재할당
+1. DELETE 요청이 성공하면 `TodoList` 를 받아온 후 state 재할당 - 데이터 안정성 확보
 
 ---

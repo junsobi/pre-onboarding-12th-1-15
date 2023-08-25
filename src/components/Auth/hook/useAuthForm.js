@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { validationEmail, validationPassword } from '../validators/authValidator';
+import { validationEmail, validationPassword } from '../../../validators/authValidator';
 
 export default function useAuthForm() {
   const emailRef = useRef(null);
