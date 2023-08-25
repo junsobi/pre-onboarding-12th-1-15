@@ -41,7 +41,6 @@ export default function SignInForm() {
         id="email"
         inputRef={emailRef}
         onChangeHandler={emailChangeHandler}
-        type="email"
         errorMsg={emailErrorMsg}
       />
       <InputField
