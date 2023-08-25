@@ -24,8 +24,8 @@ export default function Layout({ title, children, showButton = 'return' }) {
   return (
     <div className="flex flex-col h-screen w-screen">
       <div className="flex-1 flex items-center justify-center">
-        <div className="w-8/12  max-w-lg mx-auto  p-3 shadow-custom-shadow text-blue-600 border-5 border-white rounded bg-white flex flex-col items-center justify-start">
-          <div className="w-full h-4 flex justify-between items-center p-5 border-b-2 border-white bg-blue-300 text-white rounded-t">
+        <div className="w-8/12  max-w-lg mx-auto  p-2 shadow-custom-shadow text-uiButtonColor border-5 border-white rounded bg-white flex flex-col items-center justify-start">
+          <div className="w-full h-4 flex justify-between items-center p-5 border-b-2 border-white bg-headerColor text-white rounded-t">
             <h1 className="font-bold text-lg">{title}</h1>
             {renderButton()}
           </div>

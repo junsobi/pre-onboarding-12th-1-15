@@ -3,7 +3,8 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        'custom-shadow': '5px -5px 0px 0px #72baed, -5px 5px 0px 0px #ffecc4',
+        'custom-shadow':
+          '0px 0px 0px 3px #72baed, 10px -10px 0px 0px #72baed, -10px 10px 0px 0px #6c8593',
       },
       animation: {
         spin: 'spin 1s linear infinite',
@@ -15,6 +16,11 @@ module.exports = {
         },
       },
       colors: {
+        headerColor: '#72baed',
+        uiBorderColor: '#3a81bb',
+        uiButtonColor: '#3a81bb',
+        retroBlue: '#598fb5',
+        retroGreen: '#017D7D',
         buttonHover: '#01017E',
         textBg: '#C0C0C0',
       },

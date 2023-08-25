@@ -10,7 +10,7 @@ const Authenticated = () => {
 
   return (
     <div className="text-center">
-      <div className="mb-4">
+      <div className="m-3">
         <p>
           해야 할 일이 <span className="text-red-600">{incompleteTodosCount}</span>개 있습니다.
         </p>

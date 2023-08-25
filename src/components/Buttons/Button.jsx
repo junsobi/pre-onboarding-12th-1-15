@@ -18,9 +18,9 @@ function Button({
 
   const variantStyles = {
     default: 'text-black bg-textBg hover:bg-buttonHover hover:text-white',
-    mainstyle: 'w-full border border-blue-700 text-blue-700 hover:bg-yellow-200',
+    mainstyle: 'w-full border border-uiBorderColor text-uiButtonColor hover:bg-yellow-200',
     returnButton:
-      'flex items-center justify-center border border-blue-600 p-2 h-6 bg-white text-blue-600 rounded hover:bg-yellow-300',
+      'flex items-center justify-center border border-uiBorderColor p-2 h-6 bg-white text-uiButtonColor rounded hover:bg-yellow-300',
   };
 
   const defaultStyles = 'font-bold rounded focus:outline-none ';
