@@ -8,7 +8,7 @@ function Main() {
   const token = localStorage.getItem('access_token');
   return (
     <TodoProvider>
-      <Layout title="Todo APP" showReturnButton={false}>
+      <Layout title="Todo APP" showButton="logout">
         {!token ? <NotAuthenticated /> : <Authenticated />}
       </Layout>
     </TodoProvider>

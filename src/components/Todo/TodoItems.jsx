@@ -7,7 +7,7 @@ const TodoItems = () => {
   const [editingTodoId, setEditingTodoId] = useState(null); // 현재 수정 중인 todo의 ID를 관리하는 상태
 
   return (
-    <ul className="flex flex-col gap-4 w-full h-full mt-2 p-4 border border-blue-900 rounded">
+    <ul className="flex flex-col gap-4 w-full h-full mt-2 p-4 border border-blue-900 rounded overflow-y-auto">
       {todos.map(todo => (
         <React.Fragment key={todo.id}>
           <TodoItem

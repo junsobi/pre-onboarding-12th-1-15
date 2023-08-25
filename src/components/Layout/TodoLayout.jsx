@@ -1,21 +1,8 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
-import Button from '../Button';
-import { BiHomeAlt2 } from 'react-icons/bi';
-import { ImExit } from 'react-icons/im';
+import LogOutButton from '../Buttons/LogOutButton';
+import ToHomeButton from '../Buttons/ToHomeButton';
 
 export default function TodoLayout({ children }) {
-  const navigate = useNavigate();
-  const removeToken = () => localStorage.removeItem('access_token');
-
-  const toHomeHandler = () => {
-    navigate('/');
-  };
-  const logoutHandler = () => {
-    removeToken();
-    navigate('/');
-  };
-
   return (
     <div className="flex flex-col overflow-hidden h-screen w-screen">
       <div className="flex-1 flex items-center justify-center">
@@ -23,21 +10,9 @@ export default function TodoLayout({ children }) {
           <div className="w-full h-4 flex justify-between items-center px-2 py-5 border-b-2 border-white bg-blue-300 text-white rounded-t">
             <h1 className="text-lg font-bold">My Todos</h1>
             <div className="flex gap-2">
-              <Button
-                onClick={toHomeHandler}
-                text={<BiHomeAlt2 />}
-                variant="returnButton"
-                size="small"
-                className="w-10"
-              />
+              <ToHomeButton variant="returnButton" size="small" className="w-10" />
 
-              <Button
-                onClick={logoutHandler}
-                text={<ImExit />}
-                variant="returnButton"
-                size="small"
-                className="w-10"
-              />
+              <LogOutButton variant="returnButton" size="small" className="w-10" />
             </div>
           </div>
           {children}
