@@ -7,7 +7,7 @@ const DisplayTodoItem = ({ todo, toggleEditing }) => {
   const { editTodo, removeTodo } = useTodo();
 
   return (
-    <div className="w-full flex gap-4 justify-between items-center ">
+    <div className="w-full flex gap-4 justify-between items-center py-2 hover:bg-gray-100 ">
       <div className="w-4/5 flex justify-start items-center gap-4">
         <CheckboxInput
           checked={todo.isCompleted}
