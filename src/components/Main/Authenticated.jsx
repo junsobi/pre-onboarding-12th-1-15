@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTodo } from '../../lib/contexts/hook/useTodo';
-import Button from '../Button';
+import Button from '../Buttons/Button';
 
 const Authenticated = () => {
   const navigate = useNavigate();

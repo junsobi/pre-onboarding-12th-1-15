@@ -5,8 +5,11 @@ export const TodoContext = createContext();
 
 const TodoProvider = ({ children }) => {
   const [todos, setTodos] = useState([]);
+  const hasToken = () => !!localStorage.getItem('access_token');
 
   const fetchTodos = async () => {
+    if (!hasToken()) return;
+
     try {
       const response = await getTodos();
       setTodos(response);

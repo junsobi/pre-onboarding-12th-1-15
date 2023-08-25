@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTodo } from '../../lib/contexts/hook/useTodo';
-import Button from '../Button';
+import Button from '../Buttons/Button';
 
 const TodoForm = () => {
   const [newTodo, setNewTodo] = useState('');

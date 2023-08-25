@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTodo } from '../../lib/contexts/hook/useTodo';
-import Button from '../Button';
+import Button from '../Buttons/Button';
 import CheckboxInput from '../Input/CheckboxInput';
 
 const DisplayTodoItem = ({ todo, toggleEditing }) => {
