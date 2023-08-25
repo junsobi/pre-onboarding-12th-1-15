@@ -2,6 +2,7 @@ import React from 'react';
 import useAuthForm from './hook/useAuthForm';
 import { signUp } from '../../lib/api/auth';
 import { useNavigate } from 'react-router';
+import InputField from './InputFileld';
 import Button from '../Buttons/Button';
 
 export default function SignUpForm() {
@@ -29,31 +30,22 @@ export default function SignUpForm() {
 
   return (
     <form onSubmit={singupHandler} className="w-full flex flex-col gap-2 mt-4 text-blue-600">
-      <label htmlFor="email" className="text-blue-700">
-        이메일
-      </label>
-      <input
-        data-test-id="email-input"
+      <InputField
+        label="이메일"
         id="email"
-        ref={emailRef}
-        onChange={emailChangeHandler}
+        inputRef={emailRef}
+        onChangeHandler={emailChangeHandler}
         type="email"
-        className="h-9 p-2 text-blue-600 border border-blue-600 rounded focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        errorMsg={emailErrorMsg}
       />
-      <span id="email-error-msg">{emailErrorMsg}</span>
-      <label htmlFor="password" className="text-blue-700">
-        비밀번호
-      </label>
-      <input
-        data-test-id="password-input"
+      <InputField
+        label="비밀번호"
         id="password"
+        inputRef={passwordRef}
+        onChangeHandler={passwordChangeHandler}
         type="password"
-        ref={passwordRef}
-        onChange={passwordChangeHandler}
-        className="h-9 p-2 text-blue-600 border border-blue-600 rounded focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        errorMsg={passwordErrorMsg}
       />
-      <span id="password-error-msg">{passwordErrorMsg}</span>
-
       <Button
         dataTestId="signup-button"
         disabled={!isPass}

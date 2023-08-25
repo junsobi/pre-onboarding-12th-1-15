@@ -2,6 +2,7 @@ import React from 'react';
 import useAuthForm from './hook/useAuthForm';
 import { signIn } from '../../lib/api/auth';
 import { useNavigate } from 'react-router';
+import InputField from './InputFileld';
 import Button from '../Buttons/Button';
 
 export default function SignInForm() {
@@ -29,30 +30,22 @@ export default function SignInForm() {
 
   return (
     <form onSubmit={singinHandler} className="w-full flex flex-col mt-4 gap-2 text-blue-600">
-      <label htmlFor="email" className="text-blue-800">
-        이메일
-      </label>
-      <input
-        data-testid="email-input"
+      <InputField
+        label="이메일"
         id="email"
-        ref={emailRef}
-        onChange={emailChangeHandler}
+        inputRef={emailRef}
+        onChangeHandler={emailChangeHandler}
         type="email"
-        className="h-9 p-2 text-blue-600 border border-blue-600 rounded focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        errorMsg={emailErrorMsg}
       />
-      <span id="email-error-msg">{emailErrorMsg}</span>
-      <label htmlFor="password" className="text-blue-800">
-        패스워드
-      </label>
-      <input
-        data-testid="password-input"
+      <InputField
+        label="패스워드"
         id="password"
+        inputRef={passwordRef}
+        onChangeHandler={passwordChangeHandler}
         type="password"
-        ref={passwordRef}
-        onChange={passwordChangeHandler}
-        className="h-9 p-2 text-blue-600 border border-blue-600 rounded focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+        errorMsg={passwordErrorMsg}
       />
-      <span id="password-error-msg">{passwordErrorMsg}</span>
       <Button
         dataTestId="signin-button"
         disabled={!isPass}
