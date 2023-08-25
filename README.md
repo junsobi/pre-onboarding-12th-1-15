@@ -249,10 +249,9 @@ npm start
    → UseNavigate를 활용
 2. API 호출  
    → Axios.create 이용
-3. 토큰 관리  
-   → 토큰 유효성 검사를 할 수있는 로직 추가
+3. 토큰 관리(유효성)  
    → 401 에러 (unAuthorized) response interceptor로 토큰 삭제 후 리다이렉트
-4. 입력 유효성 검증  
+5. 입력 유효성 검증  
    → response error 처리 - alert로 표시
 
 </br>
