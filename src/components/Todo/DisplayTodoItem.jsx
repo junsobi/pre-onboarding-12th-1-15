@@ -31,7 +31,7 @@ const DisplayTodoItem = ({ todo, toggleEditing }) => {
           text={'수정'}
           variant="returnButton"
           size="small"
-          className="h-8 py-4"
+          className="h-8 py-4 min-w-max"
         />
         <Button
           onClick={() => removeTodo(todo.id)}
@@ -39,7 +39,7 @@ const DisplayTodoItem = ({ todo, toggleEditing }) => {
           text={'삭제'}
           variant="returnButton"
           size="small"
-          className="h-8 py-4"
+          className="h-8 py-4 min-w-max"
         />
       </div>
     </div>
