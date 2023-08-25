@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTodo } from '../../lib/contexts/hook/useTodo';
 import Button from '../Buttons/Button';
 import CheckboxInput from '../Input/CheckboxInput';
@@ -6,6 +6,14 @@ import CheckboxInput from '../Input/CheckboxInput';
 const EditingTodoItem = ({ todo, toggleEditing }) => {
   const [editingValue, setEditingValue] = useState(todo.todo);
   const { editTodo } = useTodo();
+
+  const inputRef = useRef(null); // input에 대한 참조 생성
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus(); // 수정 모드로 전환될 때 input에 포커스
+    }
+  }, []); // 빈 dependency array를 사용하여 컴포넌트가 mount될 때만 실행
 
   const handleEditChange = e => {
     setEditingValue(e.target.value);
@@ -26,10 +34,14 @@ const EditingTodoItem = ({ todo, toggleEditing }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full flex gap-4 justify-between items-center">
+    <form
+      onSubmit={handleSubmit}
+      className="w-full flex gap-4 justify-between items-center py-2 hover:bg-gray-100"
+    >
       <div className="w-4/5 flex justify-start items-center gap-2">
         <CheckboxInput checked={todo.isCompleted} readOnly />
         <input
+          ref={inputRef}
           type="text"
           value={editingValue}
           onChange={handleEditChange}
