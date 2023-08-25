@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useTodo } from '../../lib/contexts/hook/useTodo';
 import Button from '../Buttons/Button';
 
 const TodoForm = () => {
   const [newTodo, setNewTodo] = useState('');
   const { addTodo } = useTodo();
+
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []); //첫 랜더링시 인풋창에 포커스 가도록
 
   const handleSubmit = async event => {
     event.preventDefault();
@@ -17,6 +25,7 @@ const TodoForm = () => {
   return (
     <form onSubmit={handleSubmit} className="w-full flex justify-between items-center my-4 px-4">
       <input
+        ref={inputRef}
         type="text"
         value={newTodo}
         placeholder="새로운 Todo"
