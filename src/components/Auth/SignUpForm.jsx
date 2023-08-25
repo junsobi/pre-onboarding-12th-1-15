@@ -1,5 +1,5 @@
 import React from 'react';
-import useAuthForm from '../../hook/useAuthForm';
+import useAuthForm from './hook/useAuthForm';
 import { signUp } from '../../lib/api/auth';
 import { useNavigate } from 'react-router';
 import Button from '../Buttons/Button';
