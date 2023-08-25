@@ -41,6 +41,7 @@ const EditingTodoItem = ({ todo, toggleEditing }) => {
       <div className="w-4/5 flex justify-start items-center gap-2">
         <CheckboxInput checked={todo.isCompleted} readOnly />
         <input
+          data-testid="modify-input"
           ref={inputRef}
           type="text"
           value={editingValue}
